@@ -55,13 +55,20 @@ class StreamProcessor(object):
         count = 0  # How many two-digit numbers the `process` method has added
                    # together.
         total = 0  # The running total of sums.
-
-        # TODO: WRITE CODE HERE:
-
+        
+        while total < 200 and count <10:
+            two_digits = self._stream.read(2)#returns 23,47,...
+            if len(two_digits) < 2:
+                break
+            n = int(two_digits)
+            count += 1
+            total += n
+            
+        return count
         # Just some example syntax, you can read two digits from the head of the
         # stream using the following code:
         #
         # digits = self._stream.read(2)
 
 
-        return count
+        
